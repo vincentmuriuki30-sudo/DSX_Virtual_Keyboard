@@ -1,87 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/keyboardMainContainer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="#1E1E1E"
+    android:background="#121212"
     android:padding="4dp">
 
-    <!-- AI Context Suggestion Bar -->
-    <LinearLayout
+    <!-- AI Suggestion & Editing Bar -->
+    <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:background="#2D2D2D"
-        android:padding="4dp"
-        android:gravity="center_vertical">
+        android:scrollbars="none"
+        android:layout_marginBottom="4dp">
 
-        <Button
-            android:id="@+id/btn_ai_suggest"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="AI Suggest"
-            android:textSize="12sp"
-            android:backgroundTint="#FF007F"
-            android:textColor="#FFFFFF"/>
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="  DSX Smart Ready"
-            android:textColor="#00FF66"
-            android:textSize="12sp"/>
-    </LinearLayout>
+            <TextView
+                android:id="@+id/aiSuggestChip"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:text="✨ DSX Smart AI Ready"
+                android:textColor="#FFFFFF"
+                android:background="#1E88E5"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:gravity="center"
+                android:textSize="13sp"
+                android:layout_marginEnd="6dp" />
 
-    <!-- Row 1: QWERTY -->
+            <Button
+                android:id="@+id/btnCopy"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:text="COPY"
+                android:textSize="11sp"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#333333"
+                android:layout_marginEnd="4dp" />
+
+            <Button
+                android:id="@+id/btnPaste"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:text="PASTE"
+                android:textSize="11sp"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#333333"
+                android:layout_marginEnd="4dp" />
+
+            <Button
+                android:id="@+id/btnSelectAll"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:text="ALL"
+                android:textSize="11sp"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#333333" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Row 1: Q W E R T Y U I O P -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:orientation="horizontal"
-        android:layout_marginTop="4dp"
-        android:weightSum="10">
-
-        <Button android:id="@+id/key_q" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="q" android:textColor="#FFFFFF"/>
-        <Button android:id="@+id/key_w" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="w" android:textColor="#FFFFFF"/>
-        <Button android:id="@+id/key_e" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="e" android:textColor="#FFFFFF"/>
-        <Button android:id="@+id/key_r" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="r" android:textColor="#FFFFFF"/>
-        <Button android:id="@+id/key_t" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="t" android:textColor="#FFFFFF"/>
-        <Button android:id="@+id/key_y" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="y" android:textColor="#FFFFFF"/>
-        <Button android:id="@+id/key_u" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="u" android:textColor="#FFFFFF"/>
-        <Button android:id="@+id/key_i" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="i" android:textColor="#FFFFFF"/>
-        <Button android:id="@+id/key_o" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="o" android:textColor="#FFFFFF"/>
-        <Button android:id="@+id/key_p" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="p" android:textColor="#FFFFFF"/>
+        android:orientation="horizontal">
+        <Button android:id="@+id/key_q" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="q" android:textColor="#FFFFFF" android:backgroundTint="#262626" />
+        <Button android:id="@+id/key_w" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="w" android:textColor="#FFFFFF" android:backgroundTint="#262626" />
+        <Button android:id="@+id/key_e" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="e" android:textColor="#FFFFFF" android:backgroundTint="#262626" />
+        <Button android:id="@+id/key_r" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="r" android:textColor="#FFFFFF" android:backgroundTint="#262626" />
+        <Button android:id="@+id/key_t" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="t" android:textColor="#FFFFFF" android:backgroundTint="#262626" />
+        <Button android:id="@+id/key_y" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="y" android:textColor="#FFFFFF" android:backgroundTint="#262626" />
+        <Button android:id="@+id/key_u" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="u" android:textColor="#FFFFFF" android:backgroundTint="#262626" />
+        <Button android:id="@+id/key_i" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="i" android:textColor="#FFFFFF" android:backgroundTint="#262626" />
+        <Button android:id="@+id/key_o" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="o" android:textColor="#FFFFFF" android:backgroundTint="#262626" />
+        <Button android:id="@+id/key_p" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="p" android:textColor="#FFFFFF" android:backgroundTint="#262626" />
     </LinearLayout>
 
-    <!-- Row 2: ASDF -->
+    <!-- Row 2: A S D F G H J K L -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:orientation="horizontal"
-        android:layout_marginTop="4dp"
-        android:weightSum="9">
-
-        <Button android:id="@+id/key_a" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="a" android:textColor="#FFFFFF"/>
-        <Button android:id="@+id/key_s" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="s" android:textColor="#FFFFFF"/>
-        <Button android:id="@+id/key_d" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="d" android:textColor="#FFFFFF"/>
-        <Button android:id="@+id/key_f" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="f" android:textColor="#FFFFFF"/>
-        <Button android:id="@+id/key_g" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="g" android:textColor="#FFFFFF"/>
-        <Button android:id="@+id/key_h" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="h" android:textColor="#FFFFFF"/>
-        <Button android:id="@+id/key_j" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="j" android:textColor="#FFFFFF"/>
-        <Button android:id="@+id/key_k" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="k" android:textColor="#FFFFFF"/>
-        <Button android:id="@+id/key_l" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="l" android:textColor="#FFFFFF"/>
+        android:orientation="horizontal">
+        <Button android:id="@+id/key_a" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="a" android:textColor="#FFFFFF" android:backgroundTint="#262626" />
+        <Button android:id="@+id/key_s" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="s" android:textColor="#FFFFFF" android:backgroundTint="#262626" />
+        <Button android:id="@+id/key_d" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="d" android:textColor="#FFFFFF" android:backgroundTint="#262626" />
+        <Button android:id="@+id/key_f" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="f" android:textColor="#FFFFFF" android:backgroundTint="#262626" />
+        <Button android:id="@+id/key_g" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="g" android:textColor="#FFFFFF" android:backgroundTint="#262626" />
+        <Button android:id="@+id/key_h" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="h" android:textColor="#FFFFFF" android:backgroundTint="#262626" />
+        <Button android:id="@+id/key_j" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="j" android:textColor="#FFFFFF" android:backgroundTint="#262626" />
+        <Button android:id="@+id/key_k" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="k" android:textColor="#FFFFFF" android:backgroundTint="#262626" />
+        <Button android:id="@+id/key_l" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="l" android:textColor="#FFFFFF" android:backgroundTint="#262626" />
     </LinearLayout>
 
-    <!-- Row 3: ZXCV & Space & Backspace -->
+    <!-- Row 3: SHIFT Z X C V B N M DEL -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:orientation="horizontal"
-        android:layout_marginTop="4dp"
-        android:weightSum="10">
+        android:orientation="horizontal">
+        <Button android:id="@+id/key_shift" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.2" android:text="⇧" android:textColor="#FFFFFF" android:backgroundTint="#3A3A3A" />
+        <Button android:id="@+id/key_z" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="z" android:textColor="#FFFFFF" android:backgroundTint="#262626" />
+        <Button android:id="@+id/key_x" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="x" android:textColor="#FFFFFF" android:backgroundTint="#262626" />
+        <Button android:id="@+id/key_c" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="c" android:textColor="#FFFFFF" android:backgroundTint="#262626" />
+        <Button android:id="@+id/key_v" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="v" android:textColor="#FFFFFF" android:backgroundTint="#262626" />
+        <Button android:id="@+id/key_b" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="b" android:textColor="#FFFFFF" android:backgroundTint="#262626" />
+        <Button android:id="@+id/key_n" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="n" android:textColor="#FFFFFF" android:backgroundTint="#262626" />
+        <Button android:id="@+id/key_m" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="m" android:textColor="#FFFFFF" android:backgroundTint="#262626" />
+        <Button android:id="@+id/key_del" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.2" android:text="⌫" android:textColor="#FFFFFF" android:backgroundTint="#3A3A3A" />
+    </LinearLayout>
 
-        <Button android:id="@+id/key_z" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.5" android:text="z" android:textColor="#FFFFFF"/>
-        <Button android:id="@+id/key_space" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="5" android:text="Space" android:textColor="#FFFFFF"/>
-        <Button android:id="@+id/key_backspace" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="3.5" android:text="⌫" android:textColor="#FFFFFF"/>
+    <!-- Row 4: ?123, Comma, Spacebar, Period, Enter -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal">
+        <Button android:id="@+id/key_mode" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.5" android:text="?123" android:textColor="#FFFFFF" android:backgroundTint="#3A3A3A" />
+        <Button android:id="@+id/key_comma" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="," android:textColor="#FFFFFF" android:backgroundTint="#262626" />
+        <Button android:id="@+id/key_space" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="4" android:text="Space" android:textColor="#FFFFFF" android:backgroundTint="#262626" />
+        <Button android:id="@+id/key_period" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="." android:textColor="#FFFFFF" android:backgroundTint="#262626" />
+        <Button android:id="@+id/key_enter" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.5" android:text="↵" android:textColor="#FFFFFF" android:backgroundTint="#1E88E5" />
     </LinearLayout>
 
 </LinearLayout>

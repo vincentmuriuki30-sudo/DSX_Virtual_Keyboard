@@ -13,21 +13,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Keyboard Themes"
+            android:text="DSX Keyboard Themes"
             android:textColor="#FFFFFF"
             android:textSize="22sp"
             android:textStyle="bold"
             android:layout_marginBottom="16dp" />
 
-        <!-- Theme Preview Box -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Theme Preview"
+            android:text="Active Theme Preview"
             android:textColor="#AAAAAA"
             android:textSize="14sp"
             android:layout_marginBottom="8dp" />
 
+        <!-- High contrast interactive preview card -->
         <LinearLayout
             android:id="@+id/previewContainer"
             android:layout_width="match_parent"
@@ -42,7 +42,7 @@
                 android:id="@+id/previewText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="DSX Keyboard Preview"
+                android:text="DSX Keyboard Theme"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -51,13 +51,13 @@
                 android:id="@+id/previewSubtext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sample Key: [ Q W E R T Y ]"
-                android:textColor="#4CAF50"
+                android:text="Sample Layout: [ Q W E R T Y ]"
+                android:textColor="#1E88E5"
                 android:textSize="14sp"
                 android:layout_marginTop="8dp" />
         </LinearLayout>
 
-        <!-- Theme Selection List -->
+        <!-- Theme Selection Buttons -->
         <Button
             android:id="@+id/btnThemeDark"
             android:layout_width="match_parent"

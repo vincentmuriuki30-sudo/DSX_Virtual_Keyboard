@@ -22,6 +22,8 @@ class ThemeSettingsActivity : AppCompatActivity() {
         previewText = findViewById(R.id.previewText)
 
         val prefs = getSharedPreferences("dsx_prefs", Context.MODE_PRIVATE)
+        val savedTheme = prefs.getString("selected_theme", "dark")
+        updatePreview(savedTheme ?: "dark")
 
         findViewById<Button>(R.id.btnThemeDark).setOnClickListener {
             applyTheme("dark", "#1E1E1E", "#FFFFFF", prefs)
@@ -41,5 +43,22 @@ class ThemeSettingsActivity : AppCompatActivity() {
         previewContainer.setBackgroundColor(Color.parseColor(bgColor))
         previewText.setTextColor(Color.parseColor(textColor))
         Toast.makeText(this, "Theme applied successfully!", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun updatePreview(themeKey: String) {
+        when (themeKey) {
+            "neon_blue" -> {
+                previewContainer.setBackgroundColor(Color.parseColor("#0A192F"))
+                previewText.setTextColor(Color.parseColor("#00E5FF"))
+            }
+            "amoled" -> {
+                previewContainer.setBackgroundColor(Color.parseColor("#000000"))
+                previewText.setTextColor(Color.parseColor("#FFFFFF"))
+            }
+            else -> {
+                previewContainer.setBackgroundColor(Color.parseColor("#1E1E1E"))
+                previewText.setTextColor(Color.parseColor("#FFFFFF"))
+            }
+        }
     }
 }

@@ -1,69 +1,71 @@
 package com.dsx.virtualkeyboard
 
 import android.content.Context
+import android.graphics.Color
 import android.inputmethodservice.InputMethodService
 import android.view.View
-import android.view.inputmethod.InputConnection
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
 
 class AISmartKeyboardService : InputMethodService() {
 
     private lateinit var keyboardView: View
+    private lateinit var aiSuggestChip: TextView
 
     override fun onCreateInputView(): View {
-        // Inflate the keyboard interface
-        keyboardView = layoutInflater.inflate(R.layout.keyboard_layout, null)
-        
-        // Load user's selected theme locally (fully offline)
-        applyLocalTheme()
-        setupKeyListeners(keyboardView)
-        
+        keyboardView = layoutInflater.inflate(R.layout.keyboard_view, null)
+        setupKeys(keyboardView)
+        applySavedTheme(keyboardView)
         return keyboardView
     }
 
-    private fun applyLocalTheme() {
-        val prefs = getSharedPreferences("DSXPrefs", Context.MODE_PRIVATE)
-        val themeId = prefs.getInt("selected_theme_id", 1)
-        // You can query ThemeRepository.getThemes() here to style key backgrounds offline based on themeId
-    }
-
-    private fun setupKeyListeners(view: View) {
-        val ic: InputConnection? = currentInputConnection
-
-        // Standard key simulation example
-        val btnA = view.findViewById<Button>(R.id.key_a)
-        btnA?.setOnClickListener {
-            ic?.commitText("a", 1)
-        }
-
-        val btnSpace = view.findViewById<Button>(R.id.key_space)
-        btnSpace?.setOnClickListener {
-            ic?.commitText(" ", 1)
-        }
-
-        val btnBackspace = view.findViewById<Button>(R.id.key_backspace)
-        btnBackspace?.setOnClickListener {
-            ic?.deleteSurroundingText(1, 0)
-        }
-
-        // Offline Smart Contextual AI Suggestion Button
-        val btnAISuggest = view.findViewById<Button>(R.id.btn_ai_suggest)
-        btnAISuggest?.setOnClickListener {
-            val screenText = ScreenReaderService.latestScreenText
-            val offlineSuggestion = getOfflineAISuggestion(screenText)
-            ic?.commitText(offlineSuggestion, 1)
+    override fun onStartInputView(info: android.view.inputmethod.EditorInfo?, restarting: Boolean) {
+        super.onStartInputView(info, restarting)
+        if (::keyboardView.isInitialized) {
+            applySavedTheme(keyboardView)
         }
     }
 
-    private fun getOfflineAISuggestion(contextText: String): String {
-        // Built-in offline smart response fallback rules
-        return if (contextText.contains("price", true) || contextText.contains("how much", true)) {
-            "Let me check and get back to you shortly."
-        } else if (contextText.contains("meeting", true) || contextText.contains("time", true)) {
-            "That works for me. Let's lock it in."
-        } else {
-            "Sounds good! 👍"
+    private fun setupKeys(view: View) {
+        aiSuggestChip = view.findViewById(R.id.aiSuggestChip)
+
+        val listener = View.OnClickListener { v ->
+            val ic = currentInputConnection ?: return@OnClickListener
+            if (v is Button) {
+                val text = v.text.toString()
+                when (text) {
+                    "DEL" -> ic.deleteSurroundingText(1, 0)
+                    "SPACE" -> ic.commitText(" ", 1)
+                    "ENTER" -> ic.performEditorAction(android.view.inputmethod.EditorInfo.IME_ACTION_DONE)
+                    else -> ic.commitText(text, 1)
+                }
+            }
+        }
+
+        // Attach listener to all keyboard buttons recursively
+        bindAllButtons(view, listener)
+    }
+
+    private fun bindAllButtons(view: View, listener: View.OnClickListener) {
+        if (view is Button) {
+            view.setOnClickListener(listener)
+        } else if (view is android.view.ViewGroup) {
+            for (i in 0 until view.childCount) {
+                bindAllButtons(view.getChildAt(i), listener)
+            }
+        }
+    }
+
+    private fun applySavedTheme(view: View) {
+        val prefs = getSharedPreferences("dsx_prefs", Context.MODE_PRIVATE)
+        val theme = prefs.getString("selected_theme", "dark")
+        val mainContainer = view.findViewById<LinearLayout>(R.id.keyboardMainContainer) ?: return
+
+        when (theme) {
+            "neon_blue" -> mainContainer.setBackgroundColor(Color.parseColor("#0A192F"))
+            "amoled" -> mainContainer.setBackgroundColor(Color.parseColor("#000000"))
+            else -> mainContainer.setBackgroundColor(Color.parseColor("#121212"))
         }
     }
 }

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#1E1E1E"
+    android:padding="4dp">
+
+    <!-- AI Context Suggestion Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:background="#2D2D2D"
+        android:padding="4dp"
+        android:gravity="center_vertical">
+
+        <Button
+            android:id="@+id/btn_ai_suggest"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="AI Suggest"
+            android:textSize="12sp"
+            android:backgroundTint="#FF007F"
+            android:textColor="#FFFFFF"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="  DSX Smart Ready"
+            android:textColor="#00FF66"
+            android:textSize="12sp"/>
+    </LinearLayout>
+
+    <!-- Row 1: QWERTY -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp"
+        android:weightSum="10">
+
+        <Button android:id="@+id/key_q" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="q" android:textColor="#FFFFFF"/>
+        <Button android:id="@+id/key_w" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="w" android:textColor="#FFFFFF"/>
+        <Button android:id="@+id/key_e" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="e" android:textColor="#FFFFFF"/>
+        <Button android:id="@+id/key_r" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="r" android:textColor="#FFFFFF"/>
+        <Button android:id="@+id/key_t" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="t" android:textColor="#FFFFFF"/>
+        <Button android:id="@+id/key_y" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="y" android:textColor="#FFFFFF"/>
+        <Button android:id="@+id/key_u" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="u" android:textColor="#FFFFFF"/>
+        <Button android:id="@+id/key_i" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="i" android:textColor="#FFFFFF"/>
+        <Button android:id="@+id/key_o" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="o" android:textColor="#FFFFFF"/>
+        <Button android:id="@+id/key_p" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="p" android:textColor="#FFFFFF"/>
+    </LinearLayout>
+
+    <!-- Row 2: ASDF -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp"
+        android:weightSum="9">
+
+        <Button android:id="@+id/key_a" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="a" android:textColor="#FFFFFF"/>
+        <Button android:id="@+id/key_s" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="s" android:textColor="#FFFFFF"/>
+        <Button android:id="@+id/key_d" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="d" android:textColor="#FFFFFF"/>
+        <Button android:id="@+id/key_f" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="f" android:textColor="#FFFFFF"/>
+        <Button android:id="@+id/key_g" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="g" android:textColor="#FFFFFF"/>
+        <Button android:id="@+id/key_h" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="h" android:textColor="#FFFFFF"/>
+        <Button android:id="@+id/key_j" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="j" android:textColor="#FFFFFF"/>
+        <Button android:id="@+id/key_k" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="k" android:textColor="#FFFFFF"/>
+        <Button android:id="@+id/key_l" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="l" android:textColor="#FFFFFF"/>
+    </LinearLayout>
+
+    <!-- Row 3: ZXCV & Space & Backspace -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp"
+        android:weightSum="10">
+
+        <Button android:id="@+id/key_z" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.5" android:text="z" android:textColor="#FFFFFF"/>
+        <Button android:id="@+id/key_space" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="5" android:text="Space" android:textColor="#FFFFFF"/>
+        <Button android:id="@+id/key_backspace" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="3.5" android:text="⌫" android:textColor="#FFFFFF"/>
+    </LinearLayout>
+
+</LinearLayout>

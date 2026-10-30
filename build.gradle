@@ -1,3 +1,24 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:8.1.1"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.22"
+    }
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
 android {
     namespace 'com.dsx.virtualkeyboard'
     compileSdk 33
@@ -23,4 +44,10 @@ android {
             minifyEnabled false
         }
     }
+}
+
+dependencies {
+    implementation "androidx.core:core-ktx:1.9.0"
+    implementation "androidx.appcompat:appcompat:1.6.0"
+    implementation "com.google.android.material:material:1.8.0"
 }
